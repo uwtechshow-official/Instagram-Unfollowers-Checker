@@ -13,7 +13,7 @@ This is a simple web application that allows Instagram users to check who unfoll
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/your-username/Instagram-Unfollowers-Checker.git
+    git clone https://github.com/uwtechshow-official/Instagram-Unfollowers-Checker.git
     ```
 
 2. **Navigate to the project folder**:
@@ -31,7 +31,7 @@ This is a simple web application that allows Instagram users to check who unfoll
 
 We take privacy seriously! We do **not** store or share your Instagram credentials or any sensitive data. The data you provide is only used to retrieve unfollower information and is not saved or logged anywhere.
 
-You can check the source code and contribute to this project by visiting the [GitHub Repository](https://github.com/your-username/Instagram-Unfollowers-Checker).
+You can check the source code and contribute to this project by visiting the [GitHub Repository](https://github.com/uwtechshow-official/Instagram-Unfollowers-Checker).
 
 ## Web URL
 

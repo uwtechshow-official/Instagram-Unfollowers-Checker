@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Unfollowers Finder</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+        .custom-glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.7), 0 0 30px rgba(37, 99, 235, 0.5);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+    <div class="min-h-screen flex flex-col justify-center items-center">
+        <div class="bg-gray-800 p-8 rounded-2xl w-96 custom-glow fade-in">
+            <h1 class="text-3xl font-bold text-center mb-6 text-blue-400">Instagram Unfollowers</h1>
+            <p class="text-gray-400 text-sm text-center mb-6">
+                We don't store any data. Check our <a href="https://github.com/uwtechshow-official/Instagram-Unfollowers-Checker" target="_blank" class="text-blue-500 hover:underline">GitHub</a> for transparency.
+            </p>
+            {% if error %}
+                <p class="text-red-400 text-center mb-4">{{ error }}</p>
+            {% endif %}
+            <form method="POST">
+                <div class="mb-4">
+                    <label class="block font-medium mb-1">Instagram Username:</label>
+                    <input type="text" name="username" required class="block w-full bg-gray-700 border border-gray-600 rounded-lg p-2 focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label class="block font-medium mb-1">Instagram Password:</label>
+                    <div class="relative">
+                        <input type="password" id="password" name="password" required class="block w-full bg-gray-700 border border-gray-600 rounded-lg p-2 focus:ring-2 focus:ring-blue-500">
+                        <button type="button" id="togglePassword" class="absolute top-2 right-2 text-gray-400 hover:text-gray-200 focus:outline-none">
+                            <img id="toggleIcon" src="https://img.icons8.com/ios/50/ffffff/invisible.png" alt="Show" class="w-6 h-6 transition-transform duration-300">
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-gray-900 py-2 rounded-lg hover:bg-blue-400 transition-all">
+                    Check Unfollowers
+                </button>
+            </form>
+            {% if unfollowers %}
+                <h2 class="text-xl font-bold mt-6 mb-2 text-blue-400">Unfollowers:</h2>
+                <ul class="list-disc list-inside">
+                    {% for user in unfollowers %}
+                        <li class="hover:text-blue-400">{{ user }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <footer class="mt-8 text-gray-500 text-sm fade-in">
+            Built with 💙 by Udavin
+        </footer>
+    </div>
+
+    <script>
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
+        const toggleIcon = document.getElementById("toggleIcon");
+
+        togglePassword.addEventListener("click", () => {
+            const isPasswordVisible = passwordInput.type === "password";
+            passwordInput.type = isPasswordVisible ? "text" : "password";
+            toggleIcon.src = isPasswordVisible
+                ? "https://img.icons8.com/ios/50/ffffff/visible.png"
+                : "https://img.icons8.com/ios/50/ffffff/invisible.png";
+            toggleIcon.alt = isPasswordVisible ? "Hide" : "Show";
+        });
+    </script>
+</body>
+</html>
